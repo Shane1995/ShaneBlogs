@@ -4,8 +4,10 @@ import {
   ThumbUpIcon as ThumbUpIconSolid,
   ChatIcon as ChatIconSolid,
   StarIcon as StarIconSolid,
-  HeartIcon as HeartIconSolid
+  HeartIcon as HeartIconSolid,
 } from '@heroicons/react/solid'
+import LikeButton from './Like-Button'
+import CommentButton from './Comment-Button'
 
 export default function Thumbnail({ thumbnailContent }) {
   const renderTags = () => {
@@ -14,31 +16,17 @@ export default function Thumbnail({ thumbnailContent }) {
     })
   }
 
-  const renderButton = (Icon, name, value) => {
-    return (
-      <div
-        className={`flex flex-row cursor-pointer text-sm rounded hover:text-white hover:font-bold active:text-red-500 hover:bg-[#06202A] p-2 `}
-      >
-        <Icon className='md:h-4 md:pr-2 h-4 pr-1 text-red-500 ' />
-        <span> {name}</span>
-      </div>
-    )
-  }
-
   return (
     <article className=' flex flex-col bg-[#061b24] p-4 rounded shadow mb-2 '>
-      <header className='flex flex-col sm:flex-row justify-between items-center'>
+      <header className='flex flex-col sm:flex-row justify-between group'>
         <div>
           <h1 className='text-blue-400 text-2xl underline cursor-pointer font-medium font-mono'>
             {thumbnailContent.title}
           </h1>
-
-          <p className=' text-sm py-1 font-serif italic'>
-            Created: <span className='underline'>{thumbnailContent.created_at}</span>
-          </p>
+          <p className='  underline text-sm py-1 font-serif italic'>{thumbnailContent.created_at}</p>
         </div>
 
-        <div className='flex flex-grow justify-end sm:max-w-2xl md:max-w-'>
+        <div className='flex md:flex-grow md:justify-end sm:max-w-2xl justify-center'>
           <div className='flex flex-row items-center  group w-12 '>{<ThumbUpIcon className='pr-1 h-4' />} 23</div>
           <div className='flex flex-row items-center  group w-12 '>{<ChatIcon className='pr-1 h-4' />} 1.2K</div>
           <div className='flex flex-row items-center cursor-pointer hover:animate-bounce  group p-4 '>
@@ -52,8 +40,8 @@ export default function Thumbnail({ thumbnailContent }) {
       </div>
       <div className='pt-2 pb-2 flex flex-wrap'>{renderTags()}</div>
       <div className='md:flex md:flex-row md:text-base text-xs flex flex-row md:justify-start sm:justify-center items-center'>
-        {renderButton(ThumbUpIcon, 'Like', 10)}
-        {renderButton(ChatIcon, 'Comments')}
+        <LikeButton name='Like' selectedName='Liked' Icon={ThumbUpIcon} SelectedIcon={ThumbUpIconSolid} />
+        <CommentButton name='Comment' Icon={ChatIcon} SelectedIcon={ChatIconSolid} />
       </div>
     </article>
   )
