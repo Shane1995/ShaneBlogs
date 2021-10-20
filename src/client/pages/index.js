@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Card from '../components/Card'
-import Section from '../components/Section'
-import Welcome from '../components/Welcome'
+import Card from '../components/home-page/Card'
+import Section from '../components/home-page/Section'
+import Welcome from '../components/home-page/Welcome'
 
 export default function Home() {
   const repos = [
@@ -94,21 +94,15 @@ export default function Home() {
         <title>ShaneBlogs | Home</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='md:max-w-5xl lg:mx-auto mt-4 antialiased'>
+      <main className='md:max-w-5xl lg:mx-auto mt-4 px-4  antialiased'>
         <Welcome />
-        {/* <div className='pb-4 mb-2 border-2 bg-[#061b24] border-[#061b24]'>
-          <Section
-            title='Featured Blogs'
-            layout='grid grid-cols-1 pb-4 md:grid-cols-2 lg:grid-cols-3 gap-2 max-w-6xl mx-auto px-10'
-          >
-            {renderFeaturedBlogs()}
-          </Section>
-        </div> */}
-
-        <Section
-          title='GitHub Projects'
-          layout='grid grid-cols-1 pb-4 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto px-10 lg:mt-10'
-        >
+        <section>
+          <h2 className='mb-8 text-2xl md:text-4xl font-bold font-mono tracking-tighter leading-tight text-blue-400'>
+            Featured Posts
+          </h2>
+          <div className='grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32'></div>
+        </section>
+        <Section title='GitHub Projects' layout='grid grid-cols-1 pb-4 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:mt-10'>
           {repos && renderProjectCards()}
         </Section>
       </main>

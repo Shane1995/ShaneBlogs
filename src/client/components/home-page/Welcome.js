@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Welcome() {
   return (
     <>
-      <div className='container md:px-6 mx-auto'>
+      <div className=''>
         <div className='lg:space-x-5 lg:flex lg:flex-row md:flex-row item-center lg:-mx-4 flex flex-col mb-8 text-center lg:text-left'>
           <div className='flex-shrink-0 lg:mt-12 lg:px-4 mb-2'>
             <Image
@@ -16,7 +16,9 @@ export default function Welcome() {
             />
           </div>
           <div className='lg:px-4 lg:mt-12 p-4'>
-            <h1 className='text-2xl text-white font-mono font-extrabold lg:text-5xl'>Good Morning!✨</h1>
+            <h1 className='text-2xl tracking-tighter leading-tight text-white font-mono font-extrabold lg:text-5xl'>
+              Good Morning!✨
+            </h1>
             <div className='mt-4 md:text-xl lg:text-xl text-gray-200 '>
               <q className='mb-4  font-extrabold pr-2'>
                 You can never understand everything. But, you should push yourself to understand the system.
